@@ -49,7 +49,10 @@ install(FILES
   plugin_description.xml
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})
 
-install(DIRECTORY icons/
-  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/icons)
+
+##This not exists
+
+#install(DIRECTORY icons/
+#  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/icons)
 
 
