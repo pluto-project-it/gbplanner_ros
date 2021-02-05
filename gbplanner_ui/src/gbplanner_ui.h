@@ -7,6 +7,7 @@
 #include <std_srvs/Empty.h>
 #include <std_srvs/Trigger.h>
 #include <planner_msgs/pci_global.h>
+#include <planner_msgs/planner_string_trigger.h>
 
 #ifndef Q_MOC_RUN
 #include <QPainter>
@@ -35,6 +36,7 @@ class gbplanner_panel : public rviz::Panel {
   void on_stop_planner_click();
   void on_homing_click();
   void on_global_planner_click();
+  void on_load_graph_planner_click();
  protected Q_SLOTS:
 
  protected:
@@ -50,6 +52,10 @@ class gbplanner_panel : public rviz::Panel {
   QPushButton* button_global_planner;
   QLineEdit* global_id_line_edit;
   ros::ServiceClient planner_client_global_planner;
+
+  QPushButton* button_load_graph_planner;
+  QLineEdit* graph_path_edit;
+  ros::ServiceClient planner_client_load_graph;
 
   ros::NodeHandle nh;
 };
