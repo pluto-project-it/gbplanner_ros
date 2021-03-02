@@ -23,43 +23,50 @@
 class QLineEdit;
 class QPushButton;
 
-namespace gbplanner_ui {
-class gbplanner_panel : public rviz::Panel {
-  Q_OBJECT
- public:
-  gbplanner_panel(QWidget* parent = 0);
-  virtual void load(const rviz::Config& config);
-  virtual void save(rviz::Config config) const;
+namespace gbplanner_ui
+{
+  class gbplanner_panel : public rviz::Panel
+  {
+    Q_OBJECT
+  public:
+    gbplanner_panel(QWidget *parent = 0);
+    virtual void load(const rviz::Config &config);
+    virtual void save(rviz::Config config) const;
 
- public Q_SLOTS:
-  void on_start_planner_click();
-  void on_stop_planner_click();
-  void on_homing_click();
-  void on_global_planner_click();
-  void on_load_graph_planner_click();
- protected Q_SLOTS:
+  public Q_SLOTS:
+    void on_start_planner_click();
+    void on_stop_planner_click();
+    void on_homing_click();
+    void on_global_planner_click();
+    void on_load_graph_planner_click();
+    void on_save_graph_planner_click();
+  protected Q_SLOTS:
 
- protected:
-  QPushButton* button_start_planner;
-  ros::ServiceClient planner_client_start_planner;
+  protected:
+    QPushButton *button_start_planner;
+    ros::ServiceClient planner_client_start_planner;
 
-  QPushButton* button_stop_planner;
-  ros::ServiceClient planner_client_stop_planner;
+    QPushButton *button_stop_planner;
+    ros::ServiceClient planner_client_stop_planner;
 
-  QPushButton* button_homing;
-  ros::ServiceClient planner_client_homing;
+    QPushButton *button_homing;
+    ros::ServiceClient planner_client_homing;
 
-  QPushButton* button_global_planner;
-  QLineEdit* global_id_line_edit;
-  ros::ServiceClient planner_client_global_planner;
+    QPushButton *button_global_planner;
+    QLineEdit *global_id_line_edit;
+    ros::ServiceClient planner_client_global_planner;
 
-  QPushButton* button_load_graph_planner;
-  QLineEdit* graph_path_edit;
-  ros::ServiceClient planner_client_load_graph;
+    QPushButton *button_load_graph_planner;
+    QLineEdit *graph_path_load_edit;
+    ros::ServiceClient planner_client_load_graph;
 
-  ros::NodeHandle nh;
-};
+    QPushButton *button_save_graph_planner;
+    QLineEdit *graph_path_save_edit;
+    ros::ServiceClient planner_client_save_graph;
 
-}  // namespace gbplanner_ui
+    ros::NodeHandle nh;
+  };
 
-#endif  // GBPLANNER_UI_H
+} // namespace gbplanner_ui
+
+#endif // GBPLANNER_UI_H
